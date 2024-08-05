@@ -1,0 +1,28 @@
+{
+    "cards": [
+        {
+            "image": "https://coddmac.store/maneje/card_1.jpg",
+            "date": "20.07.2024",
+            "title": "Заголовок №1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "image": "https://coddmac.store/maneje/card_2.jpg",
+            "date": "25.07.2024",
+            "title": "Заголовок №2",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        },
+        {
+            "image": "https://coddmac.store/maneje/card_3.jpg",
+            "date": "30.07.2024",
+            "title": "Заголовок №3",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "image": "https://coddmac.store/maneje/card_4.jpg",
+            "date": "05.08.2024",
+            "title": "Заголовок №4",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+    ]
+}

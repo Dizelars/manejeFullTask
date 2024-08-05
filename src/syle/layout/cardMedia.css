@@ -1,0 +1,23 @@
+@media (min-width: 1921px) {
+    section.cards .cards_grid-container .card .card-title {
+        font-size: 18px;
+    }
+ }
+
+@media (max-width: 1200px) {
+    section.cards .cards_grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    section.cards .cards_grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 540px) {
+    section.cards .cards_grid-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

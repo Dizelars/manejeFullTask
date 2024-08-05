@@ -1,0 +1,112 @@
+section.cards {
+    padding: 100px 0;
+}
+
+section.cards .cards_title {
+    font-size: 52px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+section.cards .cards_grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 10px;
+    justify-content: center;
+}
+
+section.cards .cards_grid-container .card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: fit-content;
+    background-color: #ffffff;
+    transition: all .6s;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+section.cards .cards_grid-container .card .card-title {
+    margin: 0 0 15px 0;
+    font-weight: 700;
+    font-size: 16px;
+    color: #2e2e37;
+}
+
+section.cards .cards_grid-container .card .card-img {
+    width: 100%;
+    min-height: 270px;
+    height: 270px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+section.cards .cards_grid-container .card .card-img img {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+section.cards .cards_grid-container .card .card-descr {
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+section.cards .cards_grid-container .card .card-descr .card-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    color: #7234DB;
+    margin-bottom: 12px;
+}
+
+section.cards .cards_grid-container .card .card-descr .card-date .svg_wrapper {
+    position: relative;
+}
+
+section.cards .cards_grid-container .card .card-descr .card-date .date_svg {
+    position: relative;
+    z-index: 1;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #7234DB;
+}
+
+section.cards .cards_grid-container .card .card-descr .card-date .date_svg svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+section.cards .cards_grid-container .card .card-descr .card-date .pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	width: 26px;
+	height: 26px;
+    pointer-events: none;
+}
+
+section.cards .cards_grid-container .card .card-descr .card-date .pulse::before {
+    content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: rgb(114, 52, 219);
+	border-radius: 100%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+section.cards .cards_grid-container .card:hover .card-descr .card-date .pulse::before {
+    animation: pulse 1.5s linear infinite;
+}
