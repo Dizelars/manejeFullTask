@@ -1,19 +1,18 @@
-const newsFeedContainer = document.getElementById("cardsRendering");
+// Получаем блок с id cardsRendering, в котором будут отрисоуваться карточки.
+const cardFeedContainer = document.getElementById("cardsRendering");
 
-// Устанавливаем начальные и конечные индексы для отображения новостей
-let startIndex = 0;
-let endIndex = 4;
-let newsItems;
+// Устанавливаем глобальную переменную для хранения массива карточек
+let cardItems;
 
-// Функция для создания HTML-кода элемента новости
-function createNewsCardHTML(newsItem) {
-    // Получаем заголовок, дату и ссылку на изображение из элемента новости
-    const title = newsItem.title;
-    const date = newsItem.date;
-    const imageUrl = newsItem.image;
-    const description = newsItem.description;
+// Функция для создания HTML-кода элемента карточки
+function createCardHTML(cardItem) {
+    // Получаем заголовок, дату, ссылку на изображение и описание из элемента карточки
+    const title = cardItem.title;
+    const date = cardItem.date;
+    const imageUrl = cardItem.image;
+    const description = cardItem.description;
 
-    // Возвращаем HTML-код для новости
+    // Возвращаем HTML-код для карточки с уникальными значениями
     return `
     <div class="card">
         <div class="card-img">
@@ -43,41 +42,37 @@ function createNewsCardHTML(newsItem) {
     `;
 }
 
-const insertNews = () => {
-    // Отображаем новости на странице
-    for (let i = startIndex; i < endIndex; i++) {
-        const newsItem = newsItems[i];
-        const newsCardHTML = createNewsCardHTML(newsItem);
-        newsFeedContainer.insertAdjacentHTML("beforeend", newsCardHTML);
-    }
-
-    // Обновляем индексы для следующей порции новостей
-    startIndex = endIndex;
-    endIndex = 4;
-}
-
-// Функция для загрузки новостей
-function loadMoreNews() {
-    if (!newsItems) {
-        // Запрашиваем XML-ленту с новостями
-        fetch("https://coddmac.store/maneje/dataCards.json")
-        .then(response => response.json())
-        .then(data => {
-            // Парсим полученные данные в XML-документ
-            console.log('first time')
-            newsItems = data.cards;
-            
-            console.log(newsItems)
-
-            insertNews()
-        })
-        .catch(error => {
-            // Обрабатываем ошибку при запросе
-            console.log("Запрос не прошел. Ошибка: " + error);
-        });
-    }
-    else {
-        insertNews()
+const insertCards = () => {
+    // Отображаем карточки на странице
+    for (let i = 0; i < cardItems.length; i++) {
+        // Берем текущий json-обьект
+        const cardItem = cardItems[i];
+        // Формируем карточку на основе json-обьекта
+        const cardHTML = createCardHTML(cardItem);
+        // Вставляем сформированную карточку внутрь блока с id cardsRendering самой последней
+        cardFeedContainer.insertAdjacentHTML("beforeend", cardHTML);
     }
 }
-loadMoreNews();
+
+// Функция для загрузки карточек
+function loadCardsFromJson() {
+    // Запрашиваем JSON с карточками
+    fetch("https://coddmac.store/maneje/dataCards.json")
+    .then(response => response.json())
+    .then(data => {
+        console.log('first time')
+        // Записываем карточки в cardItems
+        cardItems = data.cards;
+        
+        console.log(cardItems)
+
+        insertCards()
+    })
+    .catch(error => {
+        // Обрабатываем ошибку при запросе
+        console.log("Запрос не прошел. Ошибка: " + error);
+    });
+}
+
+// Вызов функции для загрузки карточек из json файла
+loadCardsFromJson();
